@@ -1,0 +1,610 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>STS SAMU TINOTENDA SkyTech Software</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #050914;
+  color: white;
+  overflow-x: hidden;
+}
+
+/* NAVIGATION */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 22px 8%;
+  background: #080f20;
+  border-bottom: 1px solid #142b4e;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo {
+  font-size: 27px;
+  font-weight: bold;
+  color: #168cff;
+  letter-spacing: 2px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin-left: 22px;
+  font-size: 14px;
+  transition: .3s;
+}
+
+nav a:hover {
+  color: #168cff;
+}
+
+/* HERO */
+.hero {
+  min-height: 85vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 70px 20px;
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at center, #102b54 0%, #050914 65%);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+}
+
+.tag {
+  display: inline-block;
+  color: #46aaff;
+  border: 1px solid #168cff;
+  padding: 9px 18px;
+  border-radius: 30px;
+  margin-bottom: 25px;
+  font-size: 13px;
+}
+
+.hero h1 {
+  font-size: clamp(38px, 7vw, 70px);
+  line-height: 1.1;
+  margin-bottom: 20px;
+}
+
+.hero h1 span {
+  color: #168cff;
+  text-shadow: 0 0 25px #168cff;
+}
+
+.hero p {
+  color: #bdcbe0;
+  font-size: 17px;
+  line-height: 1.8;
+  margin-bottom: 30px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 14px 25px;
+  background: #168cff;
+  color: white;
+  text-decoration: none;
+  border-radius: 7px;
+  font-weight: bold;
+  margin: 7px;
+  transition: .3s;
+}
+
+.btn:hover {
+  background: #0064ca;
+  transform: translateY(-4px);
+  box-shadow: 0 0 25px #168cff;
+}
+
+.btn-outline {
+  background: transparent;
+  border: 1px solid #168cff;
+}
+
+/* ANIMATION */
+.orb {
+  position: absolute;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: #168cff;
+  filter: blur(100px);
+  opacity: .2;
+  animation: float 5s infinite alternate;
+}
+
+.orb.one {
+  top: 10%;
+  left: 5%;
+}
+
+.orb.two {
+  bottom: 5%;
+  right: 5%;
+  animation-delay: 2s;
+}
+
+@keyframes float {
+  from { transform: translateY(0); }
+  to { transform: translateY(-60px); }
+}
+
+/* SECTIONS */
+section {
+  padding: 80px 8%;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 34px;
+  margin-bottom: 18px;
+}
+
+.section-title span {
+  color: #168cff;
+}
+
+.subtitle {
+  text-align: center;
+  color: #aab8cc;
+  margin-bottom: 45px;
+  line-height: 1.7;
+}
+
+/* ABOUT */
+.about {
+  text-align: center;
+  background: #080f20;
+}
+
+.about p {
+  max-width: 750px;
+  margin: auto;
+  line-height: 1.9;
+  color: #bdcbe0;
+}
+
+/* SERVICES */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 22px;
+}
+
+.service-card {
+  background: #0c1830;
+  border: 1px solid #173a66;
+  padding: 30px 22px;
+  border-radius: 12px;
+  transition: .3s;
+}
+
+.service-card:hover {
+  transform: translateY(-8px);
+  border-color: #168cff;
+  box-shadow: 0 0 20px #0c315b;
+}
+
+.service-card .symbol {
+  font-size: 35px;
+  margin-bottom: 18px;
+}
+
+.service-card h3 {
+  color: #46aaff;
+  margin-bottom: 12px;
+}
+
+.service-card p {
+  color: #b5c2d5;
+  line-height: 1.7;
+}
+
+/* PROJECTS */
+.projects {
+  background: #080f20;
+  text-align: center;
+}
+
+.project-box {
+  max-width: 700px;
+  margin: auto;
+  padding: 35px;
+  background: #0c1830;
+  border: 1px solid #173a66;
+  border-radius: 12px;
+}
+
+.project-box p {
+  color: #bdcbe0;
+  line-height: 1.8;
+}
+
+/* CONTACT */
+.contact {
+  text-align: center;
+}
+
+.contact-buttons {
+  margin-top: 25px;
+}
+
+footer {
+  background: #080f20;
+  border-top: 1px solid #173a66;
+  text-align: center;
+  padding: 25px;
+  color: #aab8cc;
+  font-size: 14px;
+}
+
+/* MOBILE */
+@media(max-width: 650px) {
+  header {
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  nav a {
+    margin: 0 7px;
+    font-size: 12px;
+  }
+
+  section {
+    padding: 65px 6%;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">STS SAMU TINOTENDA.</div>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<!-- HOME -->
+<section class="hero" id="home">
+  <div class="orb one"></div>
+  <div class="orb two"></div>
+
+  <div class="hero-content">
+    <div class="tag">WELCOME TO STS SKYTECH SOFTWARE</div>
+
+    <h1>
+      Innovating The<br>
+      <span id="changing-text">Digital Future.</span>
+    </h1>
+
+    <p>
+      We build modern websites, creative software
+      and smart digital solutions to help businesses
+      grow in the digital world.
+    </p>
+
+    <a href="#contact" class="btn">Contact Us</a>
+    <a href="#services" class="btn btn-outline">Our Services</a>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <h2 class="section-title">About <span>STS</span></h2>
+
+  <p>
+    SkyTech Software (STS) is a technology-focused
+    brand dedicated to creating modern digital
+    experiences. Our vision is to use technology,
+    creativity and innovation to make life easier
+    through software and web development.
+  </p>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <h2 class="section-title">Our <span>Services</span></h2>
+
+  <p class="subtitle">
+    Technology solutions designed for the digital world.
+  </p>
+
+  <div class="services-grid">
+
+    <div class="service-card">
+      <div class="symbol">💻</div>
+      <h3>Web Development</h3>
+      <p>Modern, responsive websites for businesses and individuals.</p>
+    </div>
+
+    <div class="service-card">
+      <div class="symbol">⚙️</div>
+      <h3>Software Development</h3>
+      <p>Creative software solutions designed to solve problems.</p>
+    </div>
+
+    <div class="service-card">
+      <div class="symbol">📱</div>
+      <h3>Mobile Solutions</h3>
+      <p>Digital experiences designed for mobile users.</p>
+    </div>
+
+    <div class="service-card">
+      <div class="symbol">🌐</div>
+      <h3>IT Solutions</h3>
+      <p>Technology support and digital solutions for modern businesses.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section class="projects" id="projects">
+  <h2 class="section-title">Our <span>Projects</span></h2>
+
+  <div class="project-box">
+    <h3>Building Something Amazing</h3>
+    <p>
+      Our project portfolio is growing.
+      Stay connected to see our latest digital creations.
+    </p>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <h2 class="section-title">Let's <span>Connect</span></h2>
+
+  <p class="subtitle">
+    Have an idea or need a website?
+    Get in touch with STS SkyTech Software.
+  </p>
+
+  <div class="contact-buttons">
+    <!-- Replace these details with your own -->
+    <a class="btn" href="https://wa.me/263771234567">
+      WhatsApp Us
+    </a>
+
+    <a class="btn btn-outline"
+       href="mailto:hello@skytechsoftware.co.zw">
+      Email Us
+    </a>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 STS SkyTech Software. All Rights Reserved.</p>
+  <p>Innovating The Digital Future.</p>
+</footer>
+
+<script>
+const words = [
+  "Digital Future.",
+  "Smart Solutions.",
+  "Modern Technology."
+];
+
+let index = 0;
+
+setInterval(() => {
+  index = (index + 1) % words.length;
+  document.getElementById("changing-text").textContent = words[index];
+}, 2500);
+</script>
+
+</body>
+</html>
+
+<div class="contact-widget">
+
+  <div class="contact-popup" id="contactPopup">
+
+    <h3>STS SkyTech Software</h3>
+    <p>Welcome! Let's connect.</p>
+
+    <a class="contact-link"
+       
+       target="_blank">
+       
+    </a>
+
+    <a class="contact-link"
+       href="https://wa.me/263719675052"
+       target="_blank">
+       🟢 WhatsApp 
+    </a>
+
+    <a class="contact-link"
+       href="mailto:samutinotenda295@gmail.com">
+       📧 Send Us an Email
+    </a>
+
+  </div>
+
+  <button class="contact-toggle"
+          onclick="toggleContact()">
+    💬 Contact STS
+  </button>
+
+</div>
+
+<script>
+function toggleContact() {
+  document.getElementById("contactPopup")
+    .classList.toggle("show");
+}
+</script>
+</body>
+
+<!-- STS SERVICES SECTION -->
+<section id="services" class="sts-services">
+  <div class="services-heading">
+    <span class="sts-tag">WHAT WE DO</span>
+    <h2>Our <span>Services</span></h2>
+    <p>Smart technology solutions for a digital world.</p>
+  </div>
+
+  <div class="services-grid">
+
+    <div class="service-card">
+      <div class="service-icon">🌐</div>
+      <h3>Website Development</h3>
+      <p>We create modern, responsive and professional websites for businesses and individuals.</p>
+      <a href="https://wa.me/263781591034?text=Hello%20STS%2C%20I%20need%20website%20development." target="_blank">Request Service →</a>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon">💻</div>
+      <h3>Software Development</h3>
+      <p>Creative software solutions designed to make everyday work easier.</p>
+      <a href="https://wa.me/263781591034?text=Hello%20STS%2C%20I%20need%20software%20development." target="_blank">Request Service →</a>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon">🔧</div>
+      <h3>Computer Repairs</h3>
+      <p>Computer troubleshooting, maintenance and technical assistance.</p>
+      <a href="https://wa.me/263781591034?text=Hello%20STS%2C%20I%20need%20computer%20repair%20assistance." target="_blank">Request Service →</a>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon">🎨</div>
+      <h3>Graphic Design</h3>
+      <p>Creative logos, posters, business graphics and branding designs.</p>
+      <a href="https://wa.me/263781591034?text=Hello%20STS%2C%20I%20need%20graphic%20design." target="_blank">Request Service →</a>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon">🛡️</div>
+      <h3>IT Support</h3>
+      <p>Technology guidance, software installation and general IT assistance.</p>
+      <a href="https://wa.me/263781591034?text=Hello%20STS%2C%20I%20need%20IT%20support." target="_blank">Request Service →</a>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon">📱</div>
+      <h3>Mobile Solutions</h3>
+      <p>Explore innovative mobile-friendly digital solutions for your business.</p>
+      <a href="https://wa.me/263781591034?text=Hello%20STS%2C%20I%20need%20mobile%20solutions." target="_blank">Request Service →</a>
+    </div>
+
+  </div>
+</section>
+
+<style>
+.sts-services {
+  background: #050b18;
+  color: white;
+  padding: 65px 20px;
+  font-family: Arial, sans-serif;
+}
+
+.services-heading {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.sts-tag {
+  color: #00aaff;
+  letter-spacing: 4px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.services-heading h2 {
+  font-size: 36px;
+  margin: 15px 0;
+}
+
+.services-heading h2 span {
+  color: #008cff;
+}
+
+.services-heading p {
+  color: #aab5c7;
+}
+
+.services-grid {
+  max-width: 1100px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 22px;
+}
+
+.service-card {
+  background: #101c30;
+  border: 1px solid #183d65;
+  border-radius: 15px;
+  padding: 28px 22px;
+  transition: 0.3s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-8px);
+  border-color: #008cff;
+  box-shadow: 0 8px 25px #007bff30;
+}
+
+.service-icon {
+  font-size: 38px;
+  margin-bottom: 15px;
+}
+
+.service-card h3 {
+  color: #21a5ff;
+  font-size: 20px;
+}
+
+.service-card p {
+  color: #bdc9d9;
+  line-height: 1.7;
+  font-size: 14px;
+}
+
+.service-card a {
+  display: inline-block;
+  margin-top: 15px;
+  background: #007bff;
+  color: white;
+  padding: 11px 17px;
+  border-radius: 7px;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.service-card a:hover {
+  background: #0056b3;
+}
+</style>
